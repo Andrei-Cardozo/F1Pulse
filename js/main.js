@@ -75,6 +75,14 @@ const detalheEquipe = document.getElementById('equipe-detalhe');
 const pilotosContainer = detalheEquipe.querySelector('.pilotos-container');
 const voltarBtn = detalheEquipe.querySelector('.voltar-btn');
 
+const equipeInfoBox = document.createElement('div');
+equipeInfoBox.classList.add('info-equipe');
+detalheEquipe.insertBefore(equipeInfoBox, pilotosContainer);
+
+const pilotoDetalheSlide = document.createElement('div');
+pilotoDetalheSlide.classList.add('piloto-detalhe-slide');
+detalheEquipe.appendChild(pilotoDetalheSlide);
+
 // Dados das equipes
 const equipesDados = {
   ferrari: {
@@ -91,16 +99,64 @@ const equipesDados = {
       { nome: "Yuki Tsunoda", img: "img/pilotos/redbull/tsunoda.png", info: "FAZER INFO." }
     ]
   },
-  mercedes: { //editar e criar daqui pra frente
+  mercedes: {
     nome: "Mercedes",
     pilotos: [
-      { nome: "Lewis Hamilton", img: "img/mercedes_1.jpg", info: "Sete vezes campeão mundial, lenda viva." },
-      { nome: "George Russell", img: "img/mercedes_2.jpg", info: "Talento jovem e promissor." }
+      { nome: "Kimi A. Antonelli", img: "img/pilotos/mercedes/kantonelli.png", info: "FAZER INFO." },
+      { nome: "George Russell", img: "img/pilotos/mercedes/grussel.png", info: "FAZER INFO." }
+    ]
+  },
+  alpine: {
+    nome: "Alpine",
+    pilotos: [
+        { nome: "Franco Colapinto", img: "img/pilotos/alpine/colapinto.png", info: "FAZER INFO." },
+        { nome: "Pierre Gasly", img: "img/pilotos/alpine/pgasly.png", info: "FAZER INFO." }
+    ]
+  },
+  astonMartin: {
+    nome: "Aston Martin",
+    pilotos: [
+        { nome: "Fernando Alonso", img: "img/pilotos/astonMartin/falonso.png", info: "FAZER INFO." },
+        { nome: "Lance Stroll", img: "img/pilotos/astonMartin/lstroll.png", info: "FAZER INFO." }
+    ]
+  },
+  haas: {
+    nome: "Haas",
+    pilotos: [
+        { nome: "Estaban Ocon", img: "img/pilotos/haas/eocon.png", info: "FAZER INFO." },
+        { nome: "Oliver Bearman", img: "img/pilotos/haas/obearman.png", info: "FAZER INFO." }
+    ]
+  },
+  mclaren: {
+    nome: "McLaren",
+    pilotos: [
+        { nome: "Lando Norris", img: "img/pilotos/mclaren/norris.png", info: "FAZER INFO." },
+        { nome: "Oscar Piastri", img: "img/pilotos/mclaren/oscarpiastri.png", info: "FAZER INFO." }
+    ]
+  },
+  rbVisa: {
+    nome: "Racing Bulls",
+    pilotos: [
+        { nome: "Isack Hadjar", img: "img/pilotos/rbVisa/hadjar.png", info: "FAZER INFO." },
+        { nome: "Liam Lawson", img: "img/pilotos/rbVisa/lawson.png", info: "FAZER INFO." }
+    ]
+  },
+  sauber: {
+    nome: "Stake F1 Kick Sauber",
+    pilotos: [
+        { nome: "Gabriel Bortoleto", img: "img/pilotos/sauber/gbortoleto.png", info: "FAZER INFO." },
+        { nome: "Nico Hulkenberg", img: "img/pilotos/sauber/nicohulk.png", info: "FAZER INFO." }
+    ]
+  }, 
+  willians: {
+    nome: "Atlassian Willians",
+    pilotos: [
+        { nome: "Alex Albon", img: "img/pilotos/willians/aalbon.png", info: "FAZER INFO." },
+        { nome: "Carlos Sainz", img: "img/pilotos/willians/csainz.png", info: "FAZER INFO." }
     ]
   }
 };
 
-// Hover: desfoque os outros cards
 cardsEquipe.forEach(card => {
   card.addEventListener('mouseenter', () => {
     cardsEquipe.forEach(c => {
@@ -112,34 +168,67 @@ cardsEquipe.forEach(card => {
     cardsEquipe.forEach(c => c.style.filter = '');
   });
 
-  // Clique: mostra detalhe da equipe
   card.addEventListener('click', () => {
     const equipeKey = card.dataset.equipe;
     const equipe = equipesDados[equipeKey];
+    if (!equipe) return;
 
-    // Limpa grid e mostra container de detalhe
     equipesGrid.classList.add('dim');
-    detalheEquipe.style.display = 'block';
-    pilotosContainer.innerHTML = '';
+    detalheEquipe.style.display = 'flex';
+    detalheEquipe.innerHTML = `
+      <button class="voltar-btn">← Voltar</button>
+      <div class="equipe-info-box">
+        <h3>${equipe.nome}</h3>
+        <p>História da equipe será inserida aqui futuramente.</p>
+      </div>
+      <div class="pilotos-container">
+        ${equipe.pilotos.map((piloto, index) => `
+          <div class="piloto-card" data-index="${index}" data-equipe="${equipeKey}">
+            <img src="${piloto.img}" alt="${piloto.nome}">
+            <h4>${piloto.nome}</h4>
+          </div>
+        `).join('')}
+      </div>
+    `;
 
-    equipe.pilotos.forEach(piloto => {
-      const cardPiloto = document.createElement('div');
-      cardPiloto.classList.add('piloto-card');
-      cardPiloto.innerHTML = `
-        <img src="${piloto.img}" alt="${piloto.nome}" style="width:100%; border-radius:8px;">
-        <h4>${piloto.nome}</h4>
-        <p>${piloto.info}</p>
-      `;
-      pilotosContainer.appendChild(cardPiloto);
+    detalheEquipe.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Evento de voltar
+    detalheEquipe.querySelector('.voltar-btn').addEventListener('click', () => {
+      detalheEquipe.style.display = 'none';
+      equipesGrid.classList.remove('dim');
     });
 
-    // Scroll suave até a seção de detalhe
-    detalheEquipe.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Evento de clique nos pilotos
+    const pilotoCards = detalheEquipe.querySelectorAll('.piloto-card');
+    pilotoCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const index = card.dataset.index;
+        const equipeKey = card.dataset.equipe;
+        const piloto = equipesDados[equipeKey].pilotos[index];
+        mostrarSlidePiloto(piloto);
+      });
+    });
   });
 });
+function mostrarSlidePiloto(piloto) {
+  let slide = document.querySelector('.piloto-detalhe-slide');
+  if (slide) slide.remove(); // remove slide anterior
 
-// Botão voltar
-voltarBtn.addEventListener('click', () => {
-  detalheEquipe.style.display = 'none';
-  equipesGrid.classList.remove('dim');
-});
+  slide = document.createElement('div');
+  slide.classList.add('piloto-detalhe-slide', 'ativo');
+  slide.innerHTML = `
+    <div class="piloto-info-card">
+      <button class="fechar-piloto">×</button>
+      <img src="${piloto.img}" alt="${piloto.nome}">
+      <h3>${piloto.nome}</h3>
+      <p>${piloto.info}</p>
+    </div>
+  `;
+  document.body.appendChild(slide);
+
+  slide.querySelector('.fechar-piloto').addEventListener('click', () => {
+    slide.classList.remove('ativo');
+    setTimeout(() => slide.remove(), 500);
+  });
+}
