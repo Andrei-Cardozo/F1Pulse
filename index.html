@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111" />
+  <title>F1 Pulse - O Ritmo da Temporada</title>
+  
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="img/icon-192.png" type="image/png">
+
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">F1 Pulse</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#equipes">Equipes</a></li>
+        <li><a href="#temporada">Temporada</a></li>
+        <li><a href="#lendas">Lendas</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO / PREVIEW DE EQUIPES -->
+  <section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>F1 Pulse</h1>
+      <p>O pulso da velocidade. A cada volta, uma nova história.</p>
+      <a href="#equipes" class="btn-explore">Explorar</a>
+    </div>
+  </section>
+
+  <!-- EQUIPES -->
+  <section id="equipes" class="equipes">
+    <h2>Selecione sua Equipe</h2>
+    <div class="equipes-grid">
+      <div class="card-equipe" data-equipe="ferrari">
+        <img src="img/ferrari_1.jpg" alt="Ferrari">
+        <h3>Ferrari</h3>
+      </div>
+      <div class="card-equipe" data-equipe="redbull">
+        <img src="img/redbull_1.jpg" alt="Red Bull">
+        <h3>Red Bull</h3>
+      </div>
+      <!-- + outras equipes -->
+    </div>
+  </section>
+
+  <!-- TEMPORADA -->
+  <section id="temporada" class="temporada">
+    <h2>Classificação da Temporada 2025</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Posição</th>
+          <th>Piloto</th>
+          <th>Equipe</th>
+          <th>Pontos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1º</td>
+          <td>Max Verstappen</td>
+          <td>Red Bull</td>
+          <td>275</td>
+        </tr>
+        <tr>
+          <td>2º</td>
+          <td>Charles Leclerc</td>
+          <td>Ferrari</td>
+          <td>210</td>
+        </tr>
+        <!-- + outros -->
+      </tbody>
+    </table>
+  </section>
+
+<section id="lendas" class="lendas">
+  <h2>Pilotos Lendários</h2>
+  <div class="lendas-container">
+    <div class="card-equipe" data-lenda="senna">
+      <img src="img/senna.jpg" alt="Ayrton Senna">
+      <h3>Ayrton Senna</h3>
+    </div>
+    <div class="card-equipe" data-lenda="schumacher">
+      <img src="img/schumacher.jpg" alt="Michael Schumacher">
+      <h3>Michael Schumacher</h3>
+    </div>
+    <!-- Outros lendários -->
+  </div>
+</section>
+
+<section id="historia" class="historia">
+  <h2>História da Fórmula 1</h2>
+  <div class="linha-do-tempo">
+    <div class="evento">
+      <span class="ano">1950</span>
+      <p>Primeira corrida de Fórmula 1 em Silverstone, Reino Unido.</p>
+    </div>
+    <div class="evento">
+      <span class="ano">1988</span>
+      <p>Ayrton Senna vence seu primeiro campeonato mundial.</p>
+    </div>
+    <div class="evento">
+      <span class="ano">2004</span>
+      <p>Michael Schumacher conquista seu sétimo título.</p>
+    </div>
+    <div class="evento">
+      <span class="ano">2021</span>
+      <p>Max Verstappen conquista seu primeiro campeonato em disputa histórica.</p>
+    </div>
+    <!-- Adicione mais marcos -->
+  </div>
+</section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="contato">
+    <h2>Receba Novidades</h2>
+    <p>Cadastre seu e-mail para receber as atualizações do F1 Pulse</p>
+    <form>
+      <input type="email" placeholder="Seu e-mail" required>
+      <button type="submit">Inscrever</button>
+    </form>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>&copy; 2025 F1 Pulse. Projeto acadêmico. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
