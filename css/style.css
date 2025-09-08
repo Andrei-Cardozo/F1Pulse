@@ -114,7 +114,9 @@ body {
 
 .card-equipe img {
   width: 100%;
-  height: auto;
+  height: 140px; /* ou 160px, ou outro valor padrão */
+  object-fit: cover;
+  object-position: center;
   border-radius: 8px;
 }
 
