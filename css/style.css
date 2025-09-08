@@ -342,7 +342,7 @@ section {
   border-radius: 8px;
   text-align: center;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.3s, filter 0.3s;
 }
 
 .piloto-card img {
@@ -397,7 +397,175 @@ section {
   border: none;
   cursor: pointer;
 }
-/* Responsive: tablets e celulares */
+
+/* --- Fichário adaptado para cores do site --- */
+.detalhes-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 2rem;
+  background-color: #111;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.info-esquerda {
+  width: 70%;
+  padding: 1.5rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.voltar-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background-color: red;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+/* Container lateral e abas com fotos */
+.box-lateral-direita {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.abas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.abas li {
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #444;
+  transition: border 0.3s, transform 0.3s;
+}
+
+.abas li.ativa {
+  border-color: red;
+  transform: scale(1.05);
+}
+
+.piloto-aba-img {
+  width: 100%;
+  max-width: 120px;
+  display: block;
+  border-radius: 8px;
+}
+
+.voltar-btn.hidden {
+  display: none;
+}
+
+#btn-voltar-historia {
+  margin-top: auto;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cards-pilotos {
+  display: flex;
+  flex-direction: column; /* desktop */
+  gap: 1rem;
+  width: 100%;
+}
+.piloto-card.selecionado {
+  border: 1px solid rgb(99, 16, 16);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+  transform: scale(1.05);
+  filter: none;
+}
+.info-piloto {
+  font-size: 14px;       /* tamanho da fonte */
+  font-style: italic;     /* estilo opcional */
+  color: #333;            /* cor */
+  line-height: 1.5;       /* espaçamento */
+}
+
+
+/* ===== RESPONSIVO ===== */
+
+/* Dispositivos com largura até 992px (tablets e alguns notebooks pequenos) */
+@media (max-width: 992px) {
+  /* Layout principal da seção de detalhes da equipe */
+  .detalhes-section {
+    flex-direction: column;
+  }
+
+  .info-esquerda {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .box-lateral-direita {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards-pilotos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .piloto-card {
+    width: 120px;
+  }
+
+  /* Outros ajustes gerais */
+  .equipe-detalhe {
+    flex-direction: column;
+  }
+
+  .info-equipe,
+  .pilotos-container {
+    flex: 1 1 100%;
+    margin: 0;
+  }
+
+  .pilotos-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .piloto-card {
+    max-width: 140px;
+  }
+
+  .abas li {
+    width: 100px;
+  }
+}
+
+/* Dispositivos com largura até 768px (celulares grandes e tablets em modo retrato) */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.5rem;
@@ -414,6 +582,7 @@ section {
     flex-direction: column;
     align-items: center;
   }
+
   .equipe-detalhe .pilotos-container {
     flex-direction: column;
     align-items: center;
@@ -436,30 +605,20 @@ section {
     width: 100%;
     margin: 0 0 1rem 0;
   }
-}
 
-@media (max-width: 992px) {
-  .equipe-detalhe {
-    flex-direction: column;
-  }
-
-  .info-equipe,
-  .pilotos-container {
-    flex: 1 1 100%;
-    margin: 0;
-  }
-
-  .pilotos-container {
+  .cards-pilotos {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
   }
 
   .piloto-card {
-    max-width: 140px;
+    width: 100px;
   }
 }
 
+/* Dispositivos com largura até 600px (celulares menores) */
 @media (max-width: 600px) {
   .piloto-info-card {
     padding: 1.5rem;
@@ -475,5 +634,17 @@ section {
 
   .fechar-piloto {
     font-size: 20px;
+  }
+
+  .abas li {
+    width: 80px;
+  }
+
+  .piloto-aba-img {
+    max-width: 80px;
+  }
+
+  .piloto-card {
+    width: 90px;
   }
 }
