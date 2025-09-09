@@ -257,24 +257,148 @@ cardsEquipe.forEach(card => {
     window.scrollTo({ top: topPos, behavior: 'smooth' });
   });
 });
+
 // Dados dos pilotos lendários
 const pilotosLendarios = {
-  senna: {
-    nome: "Ayrton Senna",
-    img: "img/senna.jpg",
+  fangio: {
+    nome: "Juan Manuel Fangio",
+    img: "img/hall/fangio.jpg",
+    info: `
+      <p>5x Campeão Mundial de F1</p>
+      <p>24 vitórias, 29 poles, 23 voltas mais rápidas e 35 pódios</p>
+      <p>História: Foi um lendário piloto argentino que dominou a Fórmula 1 nos anos 50, conquistando cinco títulos mundiais entre 1951 e 1957 com quatro equipes diferentes (Alfa Romeo, Maserati, Mercedes-Benz e Ferrari). Conhecido como "El Maestro", ele detém a maior percentagem de vitórias na história da F1 e é considerado um dos maiores pilotos de todos os tempos. Sua carreira no automobilismo começou na Argentina, e após se aposentar em 1958, ele retornou ao país e se tornou presidente honorário da Mercedes-Benz Argentina, faleceu em 1995. .</p>
+    `
+  },
+    ascari: {
+    nome: "Alberto Ascari",
+    img: "img/hall/ascari.jpg",
+    info: `
+      <p>2x Campeão Mundial de F1</p>
+      <p>13 vitórias, 14 poles, 54 voltas mais rápidas e 17 pódios.</p>
+      <p>História: Foi um piloto de Fórmula 1 italiano, bicampeão mundial em 1952 e 1953 pela Scuderia Ferrari, sendo o último italiano a conquistar tal feito até 2024. Sua carreira foi marcada por uma tragédia familiar, já que seu pai, Antonio Ascari, também piloto, morreu em 1925. Ascari morreu em um acidente de teste em 1955, apenas quatro dias após sobreviver a uma queda no mar durante o Grande Prêmio de Mônaco daquele ano. </p>
+    `
+  },
+    clark: {
+    nome: "Jim Clark",
+    img: "img/hall/clark.jpg",
+    info: `
+      <p>2x Campeão Mundial de F1</p>
+      <p>1x Ganhador das 500 Milhas de Indiánopolis</p>
+      <p>25 vitórias, 33 poles, 28 voltas mais rápidas e 32 pódios.</p>
+      <p>História: Foi um piloto escocês, considerado um dos maiores de todos os tempos, que se destacou na Fórmula 1, onde foi campeão mundial em 1963 e 1965, e nas 500 Milhas de Indianápolis. Conhecido como "O Escocês Voador", Clark era um piloto versátil que competiu em várias categorias, conquistou inúmeros recordes e foi um talento natural do automobilismo, mas sua carreira foi tragicamente interrompida por um acidente em 1968, aos 32 anos. </p>
+    `
+  },
+    hill: {
+    nome: "Graham Hill",
+    img: "img/hall/hill.jpg",
+    info: `
+      <p>2x Campeão Mundial de F1</p>
+      <p>1x Ganhador das 500 Milhas de Indiánopolis</p>
+      <p>1x Ganhador das 24 Horas de LeMans </p>
+      <p>14 vitórias, 13 poles, 10 voltas mais rápidas e 36 pódios.</p>
+      <p>História: Foi um piloto de automobilismo britânico bicampeão mundial de Fórmula 1 (1962 e 1968) e o único a vencer a Tríplice Coroa do Automobilismo, conquistando o GP de Mônaco, as 500 Milhas de Indianápolis e as 24 Horas de Le Mans. Conhecido como "Mr. Mônaco" pelas suas cinco vitórias no principado, ele é pai de Damon Hill, outro campeão mundial de Fórmula 1. A carreira de Graham Hill encerrou-se tragicamente em 1975, quando o avião que ele pilotava caiu em condições de neblina. </p>
+    `
+  },
+    stewart: {
+    nome: "Jackie Stewart",
+    img: "img/hall/stewart.jpg",
     info: `
       <p>3x Campeão Mundial de F1</p>
-      <p>41 vitórias, 65 poles</p>
-      <p>História: Ícone brasileiro, conhecido por velocidade, precisão e carisma, dominou os anos 80 e início dos 90.</p>
+      <p>27 vitórias, 17 poles, 15 voltas mais rápidas e 43 pódios.</p>
+      <p>História: É um ex-piloto de Fórmula 1 nascido na Escócia, tricampeão mundial (1969, 1971, 1973), famoso não só pelo seu sucesso nas pistas, mas também pela sua defesa incansável da segurança automobilística, tornando a modalidade muito mais segura. Além de piloto, foi um importante líder de equipa e ativista em prol das pessoas com dislexia, usando sua influência para promover mudanças na educação. </p>
+    `
+  },
+    lauda: {
+    nome: "Niki Lauda",
+    img: "img/hall/lauda.jpg",
+    info: `
+      <p>3x Campeão Mundial de F1</p>
+      <p>25 vitórias, 24 poles, 24 voltas mais rápidas e 54 pódios.</p>
+      <p>História: Foi um lendário piloto austríaco de Fórmula 1 que ganhou três títulos mundiais (1975, 1977 e 1984), apesar de ter sofrido um acidente quase fatal em 1976, do qual se recuperou notavelmente para voltar às pistas. Conhecido pela sua determinação e perspicácia, Lauda foi também um empresário bem-sucedido e dirigente de equipas de F1, tendo fundado a sua própria companhia aérea e trabalhado na Mercedes antes da sua morte. </p>
+    `
+  },
+    fittipaldi: {
+    nome: "Emerson Fittipaldi",
+    img: "img/hall/fittipaldi.jpg",
+    info: `
+      <p>2x Campeão Mundial de F1</p>
+      <p>2x Campeão das 500 Milhas de Indiánopolis </p>
+      <p>1x Campeão da Fórmula Indy </p>
+      <p>14 vitórias, 6 poles, 6 voltas mais rápidas e 14 pódios.</p>
+      <p>História: É uma lenda do automobilismo, pioneiro e o primeiro brasileiro a ser campeão mundial de Fórmula 1, título que conquistou em 1972 e novamente em 1974. Após o sucesso na F1, tornou-se bicampeão das 500 Milhas de Indianápolis (1989 e 1993) e campeão da Fórmula Indy (1989), abrindo portas para o automobilismo brasileiro no cenário internacional. Além de piloto, fundou a primeira equipe de F1 brasileira, a Copersucar, em 1975. </p>
+    `
+  },
+    piquet: {
+    nome: "Nelson Piquet",
+    img: "img/hall/piquet.jpg",
+    info: `
+      <p>3x Campeão Mundial de F1</p>
+      <p>23 vitórias, 24 poles, 23 voltas mais rápidas e 60 pódios.</p>
+      <p>História: É um ex-piloto brasileiro de Fórmula 1, tricampeão mundial (1981, 1983, 1987) e considerado um dos maiores da história da modalidade. Após a sua carreira, ele se tornou empresário, fundando equipes de automobilismo e apoiando a carreira dos seus filhos, também pilotos. </p>
+    `
+  },
+    senna: {
+    nome: "Ayrton Senna",
+    img: "img/hall/senna.jpg",
+    info: `
+      <p>3x Campeão Mundial de F1</p>
+      <p>41 vitórias, 65 poles, 19 voltas mais rápidas e 80 pódios.</p>
+      <p>História: Foi um lendário piloto brasileiro de Fórmula 1, tricampeão mundial (1988, 1990, 1991) e considerado um dos maiores desportistas do Brasil. Sua carreira começou no kart aos quatro anos, e ele ascendeu para a Fórmula 1 em 1984, conquistando seu primeiro título mundial em 1988 pela McLaren. Senna faleceu tragicamente num acidente em Ímola, na Itália, em 1994, mas deixou um legado duradouro, incluindo o Instituto Ayrton Senna, que apoia a educação de crianças e jovens no Brasil. </p>
+    `
+  },
+    prost: {
+    nome: "Alain Prost",
+    img: "img/hall/prost.jpg",
+    info: `
+      <p>4x Campeão Mundial de F1</p>
+      <p>51 vitórias, 33 poles, 41 voltas mais rápidas e 106 pódios.</p>
+      <p>História: Um piloto francês de Fórmula 1, tetracampeão mundial e conhecido pelo seu estilo de pilotagem metódico, o que lhe rendeu os apelidos "o Professor" e "o Calculista". Sua carreira, que ocorreu entre 1980 e 1993, foi marcada por um recorde de 51 vitórias e uma rivalidade histórica com Ayrton Senna, que o levou a ser considerado um dos maiores, embora subestimado, pilotos de todos os tempos. Após a aposentadoria, Prost teve envolvimento com a equipe Prost Grand Prix e outras funções no automobilismo. </p>
     `
   },
   schumacher: {
     nome: "Michael Schumacher",
-    img: "img/schumacher.jpg",
+    img: "img/hall/schumi.jpg",
     info: `
       <p>7x Campeão Mundial de F1</p>
-      <p>91 vitórias, 68 poles, 77 voltas rápidas</p>
-      <p>História: Dominou a F1 nos anos 90 e 2000, redefinindo o esporte e sendo referência em disciplina e técnica.</p>
+      <p>91 vitórias, 68 poles, 77 voltas rápidas e 155 pódios.</p>
+      <p>História: É um piloto alemão conhecido por seus sete títulos mundiais de Fórmula 1 e por um legado de recordes quebrados. Ele começou no kart aos 4 anos, disputou sua estreia na Fórmula 1 em 1991, e teve sua carreira marcada por vitórias épicas e momentos controversos, como o polêmico choque com Damon Hill em 1994. Após se aposentar em 2012, sofreu um grave acidente de esqui em 2013, que o deixou em coma e em um estado de saúde que a família mantém em sigilo. </p>
+    `
+  },    
+  alonso: {
+    nome: "Fernando Alonso",
+    img: "img/hall/alonso.jpg",
+    info: `
+      <p>2x Campeão Mundial de F1</p>
+      <p>2x Ganhador das 24 Horas de LeMans</p>
+      <p>32 vitórias, 22 poles, 26 voltas mais rápidas e 106 pódios.</p>
+      <p>História: O piloto espanhol de Fórmula 1, conhecido por seus dois títulos mundiais (2005 e 2006) pela Renault e sua longevidade na categoria. Após uma carreira em kart, estreou na F1 em 2001 e, além dos títulos, também competiu pela McLaren, Ferrari, Alpine e Aston Martin, conquistando recordes de longevidade e participações. É um piloto respeitado por sua dedicação e habilidade, sendo o primeiro a atingir 400 Grandes Prêmios. </p>
+    `
+  }, 
+  hamilton: {
+    nome: "Lewis Hamilton",
+    img: "img/hall/hamilton.jpeg",
+    info: `
+      <p>7x Campeão Mundial de F1</p>
+      <p>105 vitórias, 104 poles, 67 voltas mais rápidas e 202 pódios.</p>
+      <p>História: Nascido em 1985, é um dos pilotos mais bem-sucedidos da Fórmula 1, detendo o recorde de vitórias e sete títulos mundiais, igualando Michael Schumacher. Sua trajetória, marcada pela superação de dificuldades em uma infância modesta, começou no kart e o levou à McLaren e, posteriormente, à Mercedes, onde se estabeleceu como ícone do esporte. Além de suas conquistas nas pistas, Hamilton é reconhecido como ativista ambiental e social e um influenciador que promove a diversidade e a inclusão no automobilismo. </p>
+    `
+  }, 
+    verstappen: {
+    nome: "Max Verstappen",
+    img: "img/hall/verstappen.jpg",
+    info: `
+      <p>4x Campeão Mundial de F1</p>
+      <p>66 vitórias, 43 poles, 34 voltas mais rápidas e 119 pódios.</p>
+      <p>História: Ele é piloto de Fórmula 1 desde 2015, tendo feito sua estreia pela equipe Toro Rosso. É quatro vezes campeão da Fórmula 1 em 2021, 2022, 2023 e 2024 e terminou em terceiro lugar em 2019 e 2020 com a Red Bull Racing, equipe pela qual corre desde 2016. Fora outros recordes que ele andou quebrando, como fazer testes na pista conhecida como "Inferno Verde", mais especificadamente quando ele pilotou um carro da classe GT3 e quebrou o recorde de volta mais rápida em Nurburgring Nordschleife.</p>
+    `
+  }, 
+    vettel: {
+    nome: "Sebastian Vettel",
+    img: "img/hall/vettel.jpeg",
+    info: `
+      <p>4x Campeão Mundial de F1</p>
+      <p>34 vitórias, 57 poles, 38 voltas mais rápidas e 122 pódios.</p>
+      <p>História: É um piloto alemão de Fórmula 1 que se aposentou em 2022, após 16 temporadas, e é reconhecido por ter se tornado o piloto mais jovem a conquistar quatro títulos mundiais consecutivos (2010, 2011, 2012 e 2013) correndo pela Red Bull Racing. Sua carreira na F1 começou em 2007, com a Toro Rosso, e se destacou por vitórias pioneiras, quebrando recordes de precocidade, antes de passar para a Ferrari e a Aston Martin. </p>
     `
   }
   // Adicione outros lendários aqui
