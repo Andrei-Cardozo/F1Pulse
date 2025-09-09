@@ -14,14 +14,15 @@ body {
 
 /* NAVBAR */
 .navbar {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #000;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  top: 0px;
+  width: 100%;
+  z-index: 10000;
 }
 
 .logo {
@@ -49,7 +50,7 @@ body {
 /* HERO */
 .hero {
   position: relative;
-  height: 90vh;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -90,6 +91,10 @@ body {
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 25px;
+}
+.btn-explore:hover {
+  background-color: #aa0000;
 }
 
 /* EQUIPES */
@@ -547,8 +552,40 @@ section {
   font-size: 0.9rem;
   line-height: 1.4;
 }
+.separador {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #2e2e2e, transparent);
+  margin: 3rem 0;
+}
+.descricao-piloto {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  margin-top: 4px;
+}
 
 
+/* Espaçamento entre o título e os cards de pilotos lendários */
+#lendas h2 {
+  margin-bottom: 2rem; /* aumenta o espaço abaixo do título */
+  text-align: center; /* opcional, deixa centralizado */
+}
+
+/* Hamburger menu para responsivo */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
 /* ===== RESPONSIVO ===== */
 
 /* Dispositivos com largura até 992px (tablets e alguns notebooks pequenos) */
@@ -612,13 +649,6 @@ section {
   .hero h1 {
     font-size: 2.5rem;
   }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-top: 1rem;
-  }
-
   .equipes-grid,
   .lendas-container {
     flex-direction: column;
@@ -657,6 +687,27 @@ section {
 
   .piloto-card {
     width: 100px;
+  }
+.nav-links {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    flex-direction: column;
+    background-color: #000;
+    width: 100vw;
+    padding: 1rem;
+    gap: 1rem;
+    transition: right 0.3s ease;
+    z-index: 9999;
+    height: auto; /* importante: deixa só do tamanho dos itens */
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
   }
 }
 

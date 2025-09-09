@@ -4,7 +4,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     e.preventDefault();
     const targetId = this.getAttribute('href').substring(1);
     const section = document.getElementById(targetId);
-    const offset = 80;
+    const offset = 30;
 
     if (section) {
       const topPos = section.offsetTop - offset;
@@ -246,13 +246,13 @@ cardsEquipe.forEach(card => {
     voltarBtnEquipe.addEventListener('click', () => {
       detalheEquipe.style.display = 'none';
       cardsEquipe.forEach(c => c.style.filter = '');
-      const offset = 110;
+      const offset = 150;
       const topPos = equipesGrid.offsetTop - offset;
       window.scrollTo({ top: topPos, behavior: 'smooth' });
     });
 
     // Scroll suave para a seção
-    const offset = 20;
+    const offset = 35;
     const topPos = detalheEquipe.offsetTop - offset;
     window.scrollTo({ top: topPos, behavior: 'smooth' });
   });
@@ -434,4 +434,8 @@ cardsLendarios.forEach(card => {
       modalLendario.style.display = 'none';
     });
   });
+});
+
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('nav-links').classList.toggle('active');
 });
