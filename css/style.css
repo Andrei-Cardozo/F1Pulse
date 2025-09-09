@@ -205,14 +205,49 @@ body {
   max-width: 700px;
   margin: auto;
 }
+/* Container da timeline */
+.timeline-container {
+  display: flex;
+  flex-direction: row; /* horizontal agora */
+  gap: 2rem;
+  max-width: 100%;
+  overflow-x: auto; /* permite scroll horizontal */
+  padding: 2rem;
+  border-left: none; /* remove a linha vertical antiga */
+  border-top: 3px solid red; /* cria linha horizontal */
+  position: relative;
+  scroll-behavior: smooth;
+}
 
+/* Eventos individuais */
 .evento {
   background-color: #222;
   padding: 1rem;
-  border-left: 4px solid red;
+  border-left: none;
+  border-top: 4px solid red; /* marcador no topo */
   border-radius: 4px;
+  position: relative;
+  min-width: 250px; /* largura mínima do card */
+  flex-shrink: 0;   /* não encolhe */
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Marcador do evento */
+.evento::before {
+  content: "";
+  position: absolute;
+  top: -7px; /* posiciona acima da borda */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+/* Ano do evento */
 .evento .ano {
   font-weight: bold;
   color: red;
@@ -220,6 +255,29 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* Texto do evento */
+.evento p {
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+/* Hover efeito */
+.evento:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* Scrollbar estilizada */
+.timeline-container::-webkit-scrollbar {
+  height: 8px;
+}
+.timeline-container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+.timeline-container::-webkit-scrollbar-track {
+  background: #222;
+}
 /* LENDAS */
 .lendas {
   padding: 3rem 2rem;
@@ -708,6 +766,26 @@ section {
 
   .hamburger {
     display: flex;
+  }
+   .timeline-container {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-left: 0;
+    border-left: none;
+    border-top: 3px solid red;
+  }
+
+  .evento {
+    min-width: 250px;
+    border-left: none;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .evento::before {
+    left: 50%;
+    top: -1.1rem;
+    transform: translateX(-50%);
   }
 }
 
